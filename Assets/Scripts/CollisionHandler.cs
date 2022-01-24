@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    
 
     void OnCollisionEnter(Collision other)
     {
@@ -19,8 +21,15 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("You gto Fuel");
                 break;
            default:
-               Debug.Log("Too Bad");
+               ReloadLevel();
                break;
        }
+    }
+
+    void ReloadLevel() {
+        //This variable is the index of the current scene
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        //This loads the current scene again
+        SceneManager.LoadScene(currentSceneIndex);
     }
 }
