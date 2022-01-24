@@ -6,12 +6,15 @@ public class Movement : MonoBehaviour
 {
 
     Rigidbody rb;
+    new AudioSource audio;
     [SerializeField] float thrust = 100f;
     [SerializeField] float rotateThrust = 1f;
 
     // Start is called before the first frame update
     void Start() {
         rb = GetComponent<Rigidbody>();
+        audio = GetComponent<AudioSource>();
+        audio.Stop();
     }
 
     // Update is called once per frame
@@ -24,6 +27,15 @@ public class Movement : MonoBehaviour
     void ProcessThrust() {
         if(Input.GetKey(KeyCode.Space)) {
             rb.AddRelativeForce(Vector3.up * thrust * Time.deltaTime);
+            //Will play the rocket thrust audio if it is not already playing and the space bar is being pressed
+            if(!audio.isPlaying) {
+                audio.Play();
+            }
+        } else {
+            //Will stop playing the rocket thrust sound if it is playing and the space bar is not being pressed
+            if(audio.isPlaying) {
+                audio.Stop();
+            }
         }
     }
 
