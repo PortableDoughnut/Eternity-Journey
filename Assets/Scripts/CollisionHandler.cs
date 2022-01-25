@@ -41,33 +41,35 @@ public class CollisionHandler : MonoBehaviour
        }
     }
 
-    void CrashSequence() {
-        isTrans = true;
-        audio.Stop();
-        audio.PlayOneShot(deathSound);
-        particle.Play(deathParticle);
-        GetComponent<Movement>().enabled = false;
-        Invoke("ReloadLevel", respawnTime);
-    }
-
-    void ReloadLevel() {
-        //This loads the current scene again
-        SceneManager.LoadScene(currentSceneIndex);
-    }
-
-    void SuccessSequence() {
-        isTrans = true;
-        audio.PlayOneShot(successSound);
-        particle.Play(successParticle);
-        Invoke("LoadNextLevel", reloadTime);
-    }
-
-    //This loads the next level
+     //This loads the next level
     void LoadNextLevel() {
         int nextSceneIndex = currentSceneIndex + 1;
         //If it's the last scene it will load the first one again
         if(nextSceneIndex == SceneManager.sceneCountInBuildSettings)
             nextSceneIndex = 0;
         SceneManager.LoadScene(nextSceneIndex);
+    }
+
+     void ReloadLevel() {
+        //This loads the current scene again
+        SceneManager.LoadScene(currentSceneIndex);
+    }
+
+    void CrashSequence() {
+        isTrans = true;
+        GetComponent<Movement>().enabled = false;
+        audio.Stop();
+        audio.PlayOneShot(deathSound);
+        particle.Play(deathParticle);
+        Invoke("ReloadLevel", respawnTime);
+    }
+
+    void SuccessSequence() {
+        isTrans = true;
+        GetComponent<Movement>().enabled = false;
+        audio.Stop();
+        audio.PlayOneShot(successSound);
+        particle.Play(successParticle);
+        Invoke("LoadNextLevel", reloadTime);
     }
 }
