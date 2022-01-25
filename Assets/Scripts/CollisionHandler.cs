@@ -7,7 +7,10 @@ public class CollisionHandler : MonoBehaviour
 {
     [SerializeField] AudioClip deathSound, successSound;
     [SerializeField] float respawnTime, reloadTime = 0.5f;
+
     new AudioSource audio;
+
+    bool isTrans = false;
     int currentSceneIndex = 0;
 
     void Start() {
@@ -16,27 +19,30 @@ public class CollisionHandler : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
+        if(isTrans) { return; }
         //This variable is the index of the current scene
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-       switch (other.gameObject.tag) {
-           case "Friendly":
-               Debug.Log("Level Started.");
-               break;
-            
-            //Loads the next level by calling the LoadNextLevel() method when the Landing Pad is touched.
-            case "Finish":
-                SuccessSequence();
+        switch (other.gameObject.tag) {
+            case "Friendly":
+                Debug.Log("Level Started.");
                 break;
-            case "Fuel":
-                Debug.Log("You got Fuel");
+                
+                //Loads the next level by calling the LoadNextLevel() method when the Landing Pad is touched.
+                case "Finish":
+                    SuccessSequence();
+                    break;
+                case "Fuel":
+                    Debug.Log("You got Fuel");
+                    break;
+            default:
+                CrashSequence();
                 break;
-           default:
-               Invoke("CrashSequence", respawnTime);
-               break;
        }
     }
 
     void CrashSequence() {
+        isTrans = true;
+        audio.Stop();
         audio.PlayOneShot(deathSound);
         //TODO add particle effect
         GetComponent<Movement>().enabled = false;
@@ -49,6 +55,8 @@ public class CollisionHandler : MonoBehaviour
     }
 
     void SuccessSequence() {
+        isTrans = true;
+        audio.Stop();
         audio.PlayOneShot(successSound);
         //TODO add success particle effect
         Invoke("LoadNextLevel", reloadTime);
