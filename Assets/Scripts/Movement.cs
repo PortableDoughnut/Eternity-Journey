@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour
     [SerializeField] AudioClip thrustSound;
     [SerializeField] float thrust = 100f;
     [SerializeField] float rotateThrust = 1f;
-    
+
     Rigidbody rb;
     new AudioSource audio;
 
@@ -33,10 +33,7 @@ public class Movement : MonoBehaviour
                 audio.PlayOneShot(thrustSound);
             }
         } else {
-            //Will stop playing the rocket thrust sound if it is playing and the space bar is not being pressed
-            if(audio.isPlaying) {
                 audio.Stop();
-            }
         }
     }
 
