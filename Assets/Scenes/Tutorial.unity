@@ -223,10 +223,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 750103412606497222, guid: 91365b3c6079b2043b6787561d7ae4e8, type: 3}
-      propertyPath: respawnTime
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7016326920917701219, guid: 91365b3c6079b2043b6787561d7ae4e8, type: 3}
       propertyPath: m_Name
       value: Player
@@ -275,7 +271,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5772574553636346348, guid: 91365b3c6079b2043b6787561d7ae4e8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 91365b3c6079b2043b6787561d7ae4e8, type: 3}
 --- !u!1 &1963095181
 GameObject:

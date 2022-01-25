@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-
-    Rigidbody rb;
-    new AudioSource audio;
+    [SerializeField] AudioClip thrustSound;
     [SerializeField] float thrust = 100f;
     [SerializeField] float rotateThrust = 1f;
+    
+    Rigidbody rb;
+    new AudioSource audio;
 
     // Start is called before the first frame update
     void Start() {
@@ -29,7 +30,7 @@ public class Movement : MonoBehaviour
             rb.AddRelativeForce(Vector3.up * thrust * Time.deltaTime);
             //Will play the rocket thrust audio if it is not already playing and the space bar is being pressed
             if(!audio.isPlaying) {
-                audio.Play();
+                audio.PlayOneShot(thrustSound);
             }
         } else {
             //Will stop playing the rocket thrust sound if it is playing and the space bar is not being pressed

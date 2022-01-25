@@ -5,8 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
-    int currentSceneIndex = 0;
+    [SerializeField] AudioClip deathSound, successSound;
     [SerializeField] float respawnTime, reloadTime = 0.5f;
+    new AudioSource audio;
+    int currentSceneIndex = 0;
+
+    void Start() {
+        audio = GetComponent<AudioSource>();
+    }
 
     void OnCollisionEnter(Collision other)
     {
@@ -31,7 +37,7 @@ public class CollisionHandler : MonoBehaviour
     }
 
     void CrashSequence() {
-        //TODO add SFX effect
+        audio.PlayOneShot(deathSound);
         //TODO add particle effect
         GetComponent<Movement>().enabled = false;
         Invoke("ReloadLevel", respawnTime);
@@ -43,7 +49,8 @@ public class CollisionHandler : MonoBehaviour
     }
 
     void SuccessSequence() {
-        //TODO add success effects
+        audio.PlayOneShot(successSound);
+        //TODO add success particle effect
         Invoke("LoadNextLevel", reloadTime);
     }
 
