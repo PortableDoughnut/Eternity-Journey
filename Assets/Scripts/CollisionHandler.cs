@@ -6,15 +6,18 @@ using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {
     [SerializeField] AudioClip deathSound, successSound;
+    [SerializeField] ParticleSystem deathParticle, successParticle;
     [SerializeField] float respawnTime, reloadTime = 0.5f;
 
     new AudioSource audio;
+    new ParticleSystem particle;
 
-    bool isTrans = false;
+    bool isTrans, isSuccess = false;
     int currentSceneIndex = 0;
 
     void Start() {
         audio = GetComponent<AudioSource>();
+        particle = GetComponent<ParticleSystem>();
     }
 
     void OnCollisionEnter(Collision other)
@@ -27,13 +30,11 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("Level Started.");
                 break;
                 
-                //Loads the next level by calling the LoadNextLevel() method when the Landing Pad is touched.
-                case "Finish":
-                    SuccessSequence();
-                    break;
-                case "Fuel":
-                    Debug.Log("You got Fuel");
-                    break;
+            //Loads the next level by calling the LoadNextLevel() method when the Landing Pad is touched.
+            case "Finish":
+                SuccessSequence();
+                break;
+            
             default:
                 CrashSequence();
                 break;
@@ -44,7 +45,7 @@ public class CollisionHandler : MonoBehaviour
         isTrans = true;
         audio.Stop();
         audio.PlayOneShot(deathSound);
-        //TODO add particle effect
+        particle.Play(deathParticle);
         GetComponent<Movement>().enabled = false;
         Invoke("ReloadLevel", respawnTime);
     }
@@ -56,9 +57,8 @@ public class CollisionHandler : MonoBehaviour
 
     void SuccessSequence() {
         isTrans = true;
-        audio.Stop();
         audio.PlayOneShot(successSound);
-        //TODO add success particle effect
+        particle.Play(successParticle);
         Invoke("LoadNextLevel", reloadTime);
     }
 
