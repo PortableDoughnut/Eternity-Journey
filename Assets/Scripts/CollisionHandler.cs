@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,19 +11,34 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] float respawnTime, reloadTime = 0.5f;
 
     new AudioSource audio;
-    new ParticleSystem particle;
 
-    bool isTrans, isSuccess = false;
+    bool isTrans, isSuccess, noClip = false;
     int currentSceneIndex = 0;
 
     void Start() {
         audio = GetComponent<AudioSource>();
-        particle = GetComponent<ParticleSystem>();
+    }
+
+    void Update() {
+        ProcessLevelSkip();
+        ProcessNoClip();
+    }
+
+    void ProcessNoClip()
+    {
+        if(Input.GetKeyDown(KeyCode.C))
+        //Toggles COllision
+            noClip = !noClip;
+    }
+
+    void ProcessLevelSkip() {
+        if(Input.GetKeyDown(KeyCode.L))
+            LoadNextLevel();
     }
 
     void OnCollisionEnter(Collision other)
     {
-        if(isTrans) { return; }
+        if(isTrans || noClip) { return; }
         //This variable is the index of the current scene
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         switch (other.gameObject.tag) {
@@ -60,7 +76,7 @@ public class CollisionHandler : MonoBehaviour
         GetComponent<Movement>().enabled = false;
         audio.Stop();
         audio.PlayOneShot(deathSound);
-        particle.Play(deathParticle);
+        deathParticle.Play();
         Invoke("ReloadLevel", respawnTime);
     }
 
@@ -69,7 +85,7 @@ public class CollisionHandler : MonoBehaviour
         GetComponent<Movement>().enabled = false;
         audio.Stop();
         audio.PlayOneShot(successSound);
-        particle.Play(successParticle);
+        successParticle.Play();
         Invoke("LoadNextLevel", reloadTime);
     }
 }
