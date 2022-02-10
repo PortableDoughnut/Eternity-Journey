@@ -59,12 +59,14 @@ public class CollisionHandler : MonoBehaviour
 
      //This loads the next level
     void LoadNextLevel() {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
-        //If it's the last scene it will load the first one again
-        if(nextSceneIndex == SceneManager.sceneCountInBuildSettings)
+        if (nextSceneIndex == SceneManager.sceneCountInBuildSettings) {
             nextSceneIndex = 0;
+        }
         SceneManager.LoadScene(nextSceneIndex);
     }
+
 
      void ReloadLevel() {
         //This loads the current scene again

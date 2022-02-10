@@ -41,12 +41,15 @@ public class Movement : MonoBehaviour
 
         //If the player is pushing left or right it will rotate the player. you cannot rotate both ways at the same time. I used an elf if statement on the right if statement to make this happen because that is the simplest way I have found to do it. Also the video online used it.
     void ProcessRotate() {
-        if(Input.GetKeyDown(KeyCode.A)) {
+        if (Input.GetKey(KeyCode.A))
+        {
             RotateLeft();
         }
-        else if(Input.GetKey(KeyCode.D)) { 
+        else if (Input.GetKey(KeyCode.D))
+        {
             RotateRight();
         }
+
     }
 
     void OnThrust()
@@ -63,16 +66,16 @@ public class Movement : MonoBehaviour
         Rotate(rotateThrust);
         if(!leftThrustParticle.isEmitting)
             leftThrustParticle.Play();
-        else
-            leftThrustParticle.Stop();
+        // else
+        //     leftThrustParticle.Stop();
     }
 
     void RotateRight() {
         Rotate(-rotateThrust);
         if(!rightThrustParticle.isEmitting)
             rightThrustParticle.Play();
-        else
-            rightThrustParticle.Stop();
+        // else
+        //     rightThrustParticle.Stop();
     }
     
     void OnThrustStop()
@@ -89,9 +92,9 @@ public class Movement : MonoBehaviour
 
     void Rotate(float rotateThisFrame) {
         //Freezing rotation so we can manually rotate without bugs
-        rb.freezeRotation = true;
+         rb.freezeRotation = true;  // freezing rotation so we can manually rotate
         transform.Rotate(Vector3.forward * rotateThisFrame * Time.deltaTime);
-        //Unfreezing so the game can use it's physics engine again
-        rb.freezeRotation = false;
+        rb.freezeRotation = false;  // unfreezing rotation so the physics system can take over
+
     }
 }
