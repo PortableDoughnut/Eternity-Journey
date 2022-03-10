@@ -58,7 +58,7 @@ public class Movement : MonoBehaviour
         //Will play the rocket thrust audio if it is not already playing and the space bar is being pressed
         if (!audio.isPlaying)
         {
-            OnAudioPlay();
+            OnMainThrust();
         }
     }
 
@@ -84,7 +84,7 @@ public class Movement : MonoBehaviour
         mainThrustParticle.Stop();
     }
 
-    private void OnAudioPlay()
+    private void OnMainThrust()
     {
         audio.PlayOneShot(thrustSound);
         mainThrustParticle.Play();

@@ -119,7 +119,7 @@ Transform:
   m_GameObject: {fileID: 2369491881430761324}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.81, y: 16.36, z: 0}
-  m_LocalScale: {x: 0.54335, y: 0.54335, z: 0.1}
+  m_LocalScale: {x: 1.1195183, y: 1.1195183, z: 0.20604001}
   m_Children:
   - {fileID: 2956294980393322623}
   - {fileID: 920133734714931220}
@@ -161,7 +161,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: ab7f435ce9246d040bf676d59fbb74bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -296,7 +296,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 4c10a54873ccdf241b6fb16b7e972516, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: decc7c8bd28e6214c9bbb2eceeac817f, type: 2}
+      objectReference: {fileID: 2100000, guid: ab7f435ce9246d040bf676d59fbb74bd, type: 2}
     - target: {fileID: 919132149155446097, guid: 4c10a54873ccdf241b6fb16b7e972516, type: 3}
       propertyPath: m_Name
       value: column
@@ -367,7 +367,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 4c10a54873ccdf241b6fb16b7e972516, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: decc7c8bd28e6214c9bbb2eceeac817f, type: 2}
+      objectReference: {fileID: 2100000, guid: ab7f435ce9246d040bf676d59fbb74bd, type: 2}
     - target: {fileID: 919132149155446097, guid: 4c10a54873ccdf241b6fb16b7e972516, type: 3}
       propertyPath: m_Name
       value: column (1)
@@ -450,7 +450,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: af12c523c6237004da1efdd8d5e28905, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: decc7c8bd28e6214c9bbb2eceeac817f, type: 2}
+      objectReference: {fileID: 2100000, guid: ab7f435ce9246d040bf676d59fbb74bd, type: 2}
     - target: {fileID: 919132149155446097, guid: af12c523c6237004da1efdd8d5e28905, type: 3}
       propertyPath: m_Name
       value: half_stairs (1)
@@ -533,7 +533,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: af12c523c6237004da1efdd8d5e28905, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: decc7c8bd28e6214c9bbb2eceeac817f, type: 2}
+      objectReference: {fileID: 2100000, guid: ab7f435ce9246d040bf676d59fbb74bd, type: 2}
     - target: {fileID: 919132149155446097, guid: af12c523c6237004da1efdd8d5e28905, type: 3}
       propertyPath: m_Name
       value: half_stairs
