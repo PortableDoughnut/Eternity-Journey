@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         audio = GetComponent<AudioSource>();
         audio.Stop();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame

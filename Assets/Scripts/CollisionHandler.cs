@@ -36,16 +36,18 @@ public class CollisionHandler : MonoBehaviour
             LoadNextLevel();
     }
 
-    void OnCollisionEnter(Collision other)
-    {
+    void OnCollisionEnter(Collision other) {
         if(isTrans || noClip) { return; }
         //This variable is the index of the current scene
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         switch (other.gameObject.tag) {
-            case "Friendly":
+            case "Start":
                 Debug.Log("Level Started.");
                 break;
                 
+            case "Obstacle":
+                break;
+
             //Loads the next level by calling the LoadNextLevel() method when the Landing Pad is touched.
             case "Finish":
                 SuccessSequence();

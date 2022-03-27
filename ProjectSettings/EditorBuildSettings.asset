@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Sandbox.unity
+    path: Assets/Scenes/Moving Over.unity
     guid: a31ee66a826fae64aba3ff2c92b87c02
+  - enabled: 1
+    path: Assets/Scenes/Knock Over.unity
+    guid: 076ff2735e5df2d499960210760c11c9
   m_configObjects: {}
