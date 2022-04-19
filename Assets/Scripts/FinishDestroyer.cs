@@ -16,9 +16,8 @@ public class FinishDestroyer : MonoBehaviour
         
     }
 
-    void onCollisionEnter(Collision other) {
-        if(other.gameObject.tag != "Player") {
-            Destroy(other.gameObject);
-        }
+    private void OnCollisionEnter(Collision collision) {
+        if(collision.gameObject.tag != "Player")
+            Destroy(collision.gameObject);
     }
 }

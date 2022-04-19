@@ -8,6 +8,8 @@ TagManager:
   - Fuel
   - Start
   - Obstacle
+  - Ghost
+  - Enemy
   layers:
   - Default
   - TransparentFX

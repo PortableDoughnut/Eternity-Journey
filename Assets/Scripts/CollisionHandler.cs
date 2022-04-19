@@ -9,7 +9,6 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] AudioClip deathSound, successSound;
     [SerializeField] ParticleSystem deathParticle, successParticle;
     [SerializeField] float respawnTime, reloadTime = 0.5f;
-
     new AudioSource audio;
 
     bool isTrans, isSuccess, noClip = false;
@@ -47,16 +46,24 @@ public class CollisionHandler : MonoBehaviour
                 
             case "Obstacle":
                 break;
+            
+            case "Ghost": 
+                break;
 
             //Loads the next level by calling the LoadNextLevel() method when the Landing Pad is touched.
             case "Finish":
-                SuccessSequence();
-                break;
-            
+                    DoesFlip flip = (DoesFlip)other.gameObject?.GetComponent<DoesFlip>();
+                    if(!flip.isFlip()) {
+                        SuccessSequence();
+                        break;
+                    } else {
+                        break;
+                    }
+
             default:
                 CrashSequence();
                 break;
-       }
+        }
     }
 
      //This loads the next level
@@ -70,7 +77,7 @@ public class CollisionHandler : MonoBehaviour
     }
 
 
-     void ReloadLevel() {
+    void ReloadLevel() {
         //This loads the current scene again
         SceneManager.LoadScene(currentSceneIndex);
     }
