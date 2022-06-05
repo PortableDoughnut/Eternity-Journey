@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Going Ghost.unity
     guid: 5524c3d725c5e06438afd3f8e3d07212
+  - enabled: 1
+    path: Assets/Scenes/Teleport.unity
+    guid: 797d478c9fb5c2743a0b34ccabb61fc9
   m_configObjects: {}

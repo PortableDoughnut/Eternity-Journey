@@ -54,13 +54,10 @@ public class CollisionHandler : MonoBehaviour
                 break;
             //Loads the next level by calling the LoadNextLevel() method when the Landing Pad is touched.
             case "Finish":
-                    DoesFlip flip = (DoesFlip)other.gameObject?.GetComponent<DoesFlip>();
-                    if(!flip.isFlip()) {
-                        SuccessSequence();
-                        break;
-                    } else {
-                        break;
-                    }
+                DoesFlip flip = (DoesFlip)other.gameObject?.GetComponent<DoesFlip>();
+                if(!flip.isFlip())
+                    SuccessSequence(other);
+                    break;
 
             default:
                 CrashSequence();
@@ -93,12 +90,16 @@ public class CollisionHandler : MonoBehaviour
         Invoke("ReloadLevel", respawnTime);
     }
 
-    void SuccessSequence() {
-        isTrans = true;
-        GetComponent<Movement>().enabled = false;
-        audio.Stop();
-        audio.PlayOneShot(successSound);
-        successParticle.Play();
-        Invoke("LoadNextLevel", reloadTime);
+    void SuccessSequence(Collision other) {
+        DoesFlip flip = (DoesFlip)other.gameObject?.GetComponent<DoesFlip>();
+        if(!flip.isFlip()) {
+            Debug.Log("Finished");
+            isTrans = true;
+            GetComponent<Movement>().enabled = false;
+            audio.Stop();
+            audio.PlayOneShot(successSound);
+            successParticle.Play();
+            Invoke("LoadNextLevel", reloadTime);
+        }
     }
 }
