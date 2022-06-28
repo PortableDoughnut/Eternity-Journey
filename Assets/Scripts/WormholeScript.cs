@@ -21,6 +21,20 @@ public class WormholeScript : MonoBehaviour
         audio = GetComponent<AudioSource>();
             //Stops any audio that might be playing just to be safe.
         audio.Stop();
+
+        
+    }
+
+    void Start() {
+        EventManager.OnWormhole += DoWormhole;
+        EventManager.OnEnterWormhole += DoEnterWormhole;
+        EventManager.OnExitWormhole += DoExitWormhole;
+    }
+
+    void OneDisable() {
+        EventManager.OnWormhole -= DoWormhole;
+        EventManager.OnEnterWormhole -= DoEnterWormhole;
+        EventManager.OnExitWormhole -= DoExitWormhole;
     }
 
     /**
@@ -28,14 +42,26 @@ public class WormholeScript : MonoBehaviour
         After that it changes the location of the player to the position of the object we specified earlier.
         Finally it calls PlayAudio() to play the sound of teleporting.
     **/
-    private void OnCollisionEnter(Collision other) {
-            //This makes sure that the tag is set to "Player". If it isn't it returns, cancelling the method.
-        if(other.gameObject.tag != "Player") { return; }
-            //This teleports the player to the location specified in the gui in wormholeTo.
-        other.transform.position = wormholeTo.transform.position;
-            //Calls PlayAudio(). This will play the sound specified for teleportation.
-        PlayAudio();
-    }  
+    // private void OnCollisionEnter(Collision other) {
+    //         //This makes sure that the tag is set to "Player". If it isn't it returns, cancelling the method.
+    //     if(other.gameObject.tag != "Player") { return; }
+    //         //This teleports the player to the location specified in the gui in wormholeTo.
+    //     other.transform.position = wormholeTo.transform.position;
+    //         //Calls PlayAudio(). This will play the sound specified for teleportation.
+    //     PlayAudio();
+    // }  
+
+    private void DoWormhole() {
+
+    }
+
+    private void DoEnterWormhole() {
+
+    }
+
+    private void DoExitWormhole() {
+
+    }
 
     /**
         This method checks if audio is playing. If it is it returns cancelling the method.
