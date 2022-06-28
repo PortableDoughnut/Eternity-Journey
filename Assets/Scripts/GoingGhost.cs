@@ -14,11 +14,11 @@ public class GoingGhost : MonoBehaviour
     }
     void Start()
     {
-        EventManager.OnExit += GoGhost;
+        EventManager.OnExitGhost += GoGhost;
         EventManager.OnRemoveTrigger += GoPhysical;
     }
     void OnDisable() {
-        EventManager.OnExit -= GoGhost;
+        EventManager.OnExitGhost -= GoGhost;
         EventManager.OnRemoveTrigger -= GoPhysical;
     }
     void GoGhost() {
