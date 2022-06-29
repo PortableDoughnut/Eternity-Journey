@@ -9,29 +9,20 @@ public class DoesFlip : MonoBehaviour {
     [SerializeField] bool flip = false;
     [SerializeField] AudioClip flipSound;
     [SerializeField] int teleportUp = 40;
+    [SerializeField] GameObject start, finish, player;
 
-    GameObject start, finish, player;
-    Vector3 startPosition, finishPosition;
     new AudioSource audio;
     EventManager eventManager;
 
     private void Awake() {
-
-
-        start = GameObject.FindWithTag("Start");
-        finish = GameObject.FindWithTag("Finish");
-        player = GameObject.FindWithTag("Player");
-        startPosition = start.transform.position;
-        finishPosition = finish.transform.position;
         audio = GetComponent<AudioSource>();
         eventManager = GetComponent<EventManager>();
         audio.Stop();
     }
 
     public void FlipCheck() {
-        if (flip)
-            return;
-        eventManager.enabled = false;
+        if (!flip)
+            Destroy(GetComponent<EventManager>());
     }
 
     public void Tele() {
@@ -40,8 +31,10 @@ public class DoesFlip : MonoBehaviour {
 
     public void DoFlip() {
         if(flip) {
+            Vector3 startPosition = new Vector3(start.transform.position.x, start.transform.position.y, 0);
+            Vector3 finishPosition = new Vector3(finish.transform.position.x, finish.transform.position.y, 0);
+            Destroy(start);
             finish.transform.position = startPosition;
-            start.transform.position = finishPosition;
             flip = false;
             PlayAudio();
         }
@@ -51,7 +44,7 @@ public class DoesFlip : MonoBehaviour {
         this.gameObject.tag = "Flip";
     }
 
-    public bool isFlip => flip;
+    public global::System.Boolean isFlip => flip;
 
     private void PlayAudio() {
         if(audio.isPlaying) {return;}

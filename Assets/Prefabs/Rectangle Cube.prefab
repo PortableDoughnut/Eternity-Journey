@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7067701580817923306}
   - component: {fileID: 7067701580817923301}
   - component: {fileID: 5634971287543466880}
-  - component: {fileID: 3530460908259907075}
   - component: {fileID: 7722446747045594245}
   m_Layer: 0
   m_Name: Rectangle Cube
@@ -31,7 +30,7 @@ RectTransform:
   m_GameObject: {fileID: 7067701580817923302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 11, y: 19, z: 11}
+  m_LocalScale: {x: 29.4734, y: 50.9086, z: 11}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -117,6 +116,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f29b05c2d3c28f048841eb31badb8d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waitTime: 5
+  OnAwake:
+    m_PersistentCalls:
+      m_Calls: []
   OnExit:
     m_PersistentCalls:
       m_Calls:
@@ -170,25 +173,10 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: Enemy
           m_BoolArgument: 0
-        m_CallState: 1
-  OnFlip:
+        m_CallState: 2
+  OnCollide:
     m_PersistentCalls:
       m_Calls: []
-  OnWormhole:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &3530460908259907075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7067701580817923302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0253a8893c9f6b5498c3aa664a74d5e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &7722446747045594245
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ using System;
 
 public class EventManager : MonoBehaviour
 {
+    [SerializeField] int waitTime = 5;
 
     [SerializeField] private UnityEvent OnAwake;
     [SerializeField] private UnityEvent OnExit;
@@ -25,7 +26,15 @@ public class EventManager : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision other) {
-        OnCollide.Invoke();
+        DoesFlip flip = other.gameObject?.GetComponent<DoesFlip>();
+        if (other.gameObject.tag == "Finish" && flip.isFlip)
+        {
+            OnCollide?.Invoke();
+            }
+            else
+            {
+                return;
+            }
     }
 
     public void DoPhysicalWait()
@@ -35,6 +44,6 @@ public class EventManager : MonoBehaviour
 
     IEnumerator PhysicalWait()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(waitTime);
     }
 }

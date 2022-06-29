@@ -145,6 +145,9 @@ MonoBehaviour:
   flip: 1
   flipSound: {fileID: 8300000, guid: 6878d1ecf372f0e44b4f2f5e7b13764b, type: 3}
   teleportUp: 40
+  start: {fileID: 0}
+  finish: {fileID: 7132707905428751183}
+  player: {fileID: 0}
 --- !u!82 &4049001452210285425
 AudioSource:
   m_ObjectHideFlags: 0
@@ -253,21 +256,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f29b05c2d3c28f048841eb31badb8d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waitTime: 5
   OnAwake:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2305288317386233283}
-        m_TargetAssemblyTypeName: DoesFlip, Assembly-CSharp
-        m_MethodName: FlipCheck
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2305288317386233283}
         m_TargetAssemblyTypeName: DoesFlip, Assembly-CSharp
         m_MethodName: FlipRename
@@ -289,6 +281,18 @@ MonoBehaviour:
   OnCollide:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2305288317386233283}
+        m_TargetAssemblyTypeName: DoesFlip, Assembly-CSharp
+        m_MethodName: FlipCheck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
       - m_Target: {fileID: 2305288317386233283}
         m_TargetAssemblyTypeName: DoesFlip, Assembly-CSharp
         m_MethodName: Tele
