@@ -52,12 +52,14 @@ public class CollisionHandler : MonoBehaviour
 
             case "Wormhole": 
                 break;
+
+            case "Flip":
+                break;
+
             //Loads the next level by calling the LoadNextLevel() method when the Landing Pad is touched.
             case "Finish":
-                DoesFlip flip = (DoesFlip)other.gameObject?.GetComponent<DoesFlip>();
-                if(!flip.isFlip())
-                    SuccessSequence(other);
-                    break;
+                SuccessSequence(other);
+                break;
 
             case "Enemy":
                 StartCoroutine(PhysicalWait());
@@ -96,8 +98,6 @@ public class CollisionHandler : MonoBehaviour
     }
 
     void SuccessSequence(Collision other) {
-        DoesFlip flip = (DoesFlip)other.gameObject?.GetComponent<DoesFlip>();
-        if(!flip.isFlip()) {
             Debug.Log("Finished");
             isTrans = true;
             GetComponent<Movement>().enabled = false;
@@ -105,7 +105,6 @@ public class CollisionHandler : MonoBehaviour
             audio.PlayOneShot(successSound);
             successParticle.Play();
             Invoke("LoadNextLevel", reloadTime);
-        }
     }
 
     IEnumerator PhysicalWait()

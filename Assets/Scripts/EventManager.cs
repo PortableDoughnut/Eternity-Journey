@@ -7,11 +7,15 @@ using System;
 public class EventManager : MonoBehaviour
 {
 
+    [SerializeField] private UnityEvent OnAwake;
     [SerializeField] private UnityEvent OnExit;
     [SerializeField] private UnityEvent OnEnter;
-    [SerializeField] private UnityEvent OnFlip;
-    [SerializeField] private UnityEvent OnWormhole;
+    [SerializeField] private UnityEvent OnCollide;
     
+    void Awake() {
+        OnAwake.Invoke();
+    }
+
     void OnTriggerEnter(Collider other) {
         OnEnter.Invoke();
     }
@@ -21,7 +25,7 @@ public class EventManager : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision other) {
-        OnFlip.Invoke();
+        OnCollide.Invoke();
     }
 
     public void DoPhysicalWait()

@@ -13,6 +13,7 @@ public class DoesFlip : MonoBehaviour {
     GameObject start, finish, player;
     Vector3 startPosition, finishPosition;
     new AudioSource audio;
+    EventManager eventManager;
 
     private void Awake() {
 
@@ -23,7 +24,14 @@ public class DoesFlip : MonoBehaviour {
         startPosition = start.transform.position;
         finishPosition = finish.transform.position;
         audio = GetComponent<AudioSource>();
+        eventManager = GetComponent<EventManager>();
         audio.Stop();
+    }
+
+    public void FlipCheck() {
+        if (flip)
+            return;
+        eventManager.enabled = false;
     }
 
     public void Tele() {
@@ -39,9 +47,11 @@ public class DoesFlip : MonoBehaviour {
         }
     }
 
-    public bool isFlip() {
-        return flip;
+    public void FlipRename() {
+        this.gameObject.tag = "Flip";
     }
+
+    public bool isFlip => flip;
 
     private void PlayAudio() {
         if(audio.isPlaying) {return;}
