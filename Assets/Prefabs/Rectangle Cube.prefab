@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7067701580817923307}
   - component: {fileID: 7067701580817923306}
   - component: {fileID: 7067701580817923301}
-  - component: {fileID: 2043812296853268590}
+  - component: {fileID: 5634971287543466880}
   - component: {fileID: 3530460908259907075}
   - component: {fileID: 7722446747045594245}
   m_Layer: 0
@@ -105,7 +105,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2043812296853268590
+--- !u!114 &5634971287543466880
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,6 +117,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f29b05c2d3c28f048841eb31badb8d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7067701580817923306}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_material
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2100000, guid: ab7f435ce9246d040bf676d59fbb74bd, type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Material, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 3530460908259907075}
+        m_TargetAssemblyTypeName: GoingGhost, Assembly-CSharp
+        m_MethodName: DoPhysicalWait
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 7067701580817923301}
+        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
+        m_MethodName: set_isTrigger
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  OnEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7067701580817923302}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: set_tag
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Enemy
+          m_BoolArgument: 0
+        m_CallState: 1
+  OnHalfway:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRemoveTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  OnWormhole:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3530460908259907075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,8 +192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0253a8893c9f6b5498c3aa664a74d5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toRender: {fileID: 2100000, guid: ab7f435ce9246d040bf676d59fbb74bd, type: 2}
-  flipSound: {fileID: 8300000, guid: ec18bf5ec6f9d6a45b6da60723414c53, type: 3}
 --- !u!54 &7722446747045594245
 Rigidbody:
   m_ObjectHideFlags: 0

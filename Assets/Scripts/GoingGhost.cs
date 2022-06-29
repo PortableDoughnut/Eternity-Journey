@@ -4,32 +4,11 @@ using UnityEngine;
 
 public class GoingGhost : MonoBehaviour
 {
-    MeshRenderer mesh;
-    BoxCollider box;
-    [SerializeField] private Material toRender;
+    public void DoPhysicalWait() {
+        StartCoroutine(PhysicalWait());
+    }
 
-    void Awake() {
-        mesh = GetComponent<MeshRenderer>();
-        box = GetComponent<BoxCollider>();
-    }
-    void Start()
-    {
-        EventManager.OnExitGhost += GoGhost;
-        EventManager.OnRemoveTrigger += GoPhysical;
-    }
-    void OnDisable() {
-        EventManager.OnExitGhost -= GoGhost;
-        EventManager.OnRemoveTrigger -= GoPhysical;
-    }
-    void GoGhost() {
-        if(gameObject.tag == "Enemy")
-            mesh.material = toRender;
-    }
-    void GoPhysical() {
-        if(gameObject.tag == "Enemy")
-            box.isTrigger = false;
-        else {
-            mesh.enabled = false;
-        }
+    IEnumerator PhysicalWait() {
+        yield return new WaitForSeconds(5);
     }
 }

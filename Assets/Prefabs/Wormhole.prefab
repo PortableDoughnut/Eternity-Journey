@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 2243130981268566620}
   - component: {fileID: 2243130981268566623}
   - component: {fileID: 2243130981268566616}
+  - component: {fileID: 5884819509020186733}
+  - component: {fileID: 244976584673396341}
   m_Layer: 0
   m_Name: Wormhole
   m_TagString: Wormhole
@@ -94,7 +96,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2243130981268566610}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -209,3 +211,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wormholeTo: {fileID: 0}
   wormholeSound: {fileID: 8300000, guid: ec18bf5ec6f9d6a45b6da60723414c53, type: 3}
+--- !u!114 &5884819509020186733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2243130981268566610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f29b05c2d3c28f048841eb31badb8d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &244976584673396341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2243130981268566610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b713fe3f6969284c97bd33fa323820f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wormholeTo: {fileID: 0}
+  wormholeSound: {fileID: 0}

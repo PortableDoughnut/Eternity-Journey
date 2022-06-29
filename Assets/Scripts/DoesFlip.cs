@@ -22,10 +22,10 @@ public class DoesFlip : MonoBehaviour {
         audio.Stop();
     }
     private void Start() {
-        EventManager.OnHalfway += DoFlip;
+        //EventManager.OnHalfway += DoFlip;
     }
     private void OnDisable() {
-        EventManager.OnHalfway -= DoFlip;
+        //EventManager.OnHalfway -= DoFlip;
     }
     private void DoFlip() {
         if(flip) {

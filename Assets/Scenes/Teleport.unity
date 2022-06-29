@@ -191,6 +191,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1884152808}
     m_Modifications:
+    - target: {fileID: 2043812296853268590, guid: 01f9aefea824d7a478fbae455c0265ec, type: 3}
+      propertyPath: OnExitGhost.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7067701580817923302, guid: 01f9aefea824d7a478fbae455c0265ec, type: 3}
       propertyPath: m_Name
       value: Ghost Right
@@ -487,6 +491,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 721d2b03a48078b44969e83ac76fa171, type: 3}
+--- !u!1 &489372975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1321134081550294360, guid: 01f9aefea824d7a478fbae455c0265ec, type: 3}
+  m_PrefabInstance: {fileID: 663468466}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &512306365
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -621,6 +630,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1884152808}
     m_Modifications:
+    - target: {fileID: 5634971287543466880, guid: 01f9aefea824d7a478fbae455c0265ec, type: 3}
+      propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634971287543466880, guid: 01f9aefea824d7a478fbae455c0265ec, type: 3}
+      propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634971287543466880, guid: 01f9aefea824d7a478fbae455c0265ec, type: 3}
+      propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 489372975}
+    - target: {fileID: 5634971287543466880, guid: 01f9aefea824d7a478fbae455c0265ec, type: 3}
+      propertyPath: OnEnter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7067701580817923302, guid: 01f9aefea824d7a478fbae455c0265ec, type: 3}
       propertyPath: m_Name
       value: Ghost Left

@@ -12,6 +12,8 @@ public class WormholeScript : MonoBehaviour
         //Creates a AudioSource instance to use for playing the audio
     new AudioSource audio;
 
+    new EventManager eventM;
+
         /**
             This method excutes when the object is first loaded.
             In this method we setup the AudioSource instance and stop any audio that might be playing.
@@ -26,15 +28,15 @@ public class WormholeScript : MonoBehaviour
     }
 
     void Start() {
-        EventManager.OnWormhole += DoWormhole;
-        EventManager.OnEnterWormhole += DoEnterWormhole;
-        EventManager.OnExitWormhole += DoExitWormhole;
+        //EventManager.OnWormhole += DoWormhole;
+        //EventManager.OnEnterWormhole += DoEnterWormhole;
+        //EventManager.OnExitWormhole += DoExitWormhole;
     }
 
     void OneDisable() {
-        EventManager.OnWormhole -= DoWormhole;
-        EventManager.OnEnterWormhole -= DoEnterWormhole;
-        EventManager.OnExitWormhole -= DoExitWormhole;
+        //EventManager.OnWormhole -= DoWormhole;
+        //EventManager.OnEnterWormhole -= DoEnterWormhole;
+        //EventManager.OnExitWormhole -= DoExitWormhole;
     }
 
     /**
@@ -56,7 +58,8 @@ public class WormholeScript : MonoBehaviour
     }
 
     private void DoEnterWormhole() {
-
+        eventM.GetPlayerObject().transform.position = wormholeTo.transform.position;
+        PlayAudio();
     }
 
     private void DoExitWormhole() {

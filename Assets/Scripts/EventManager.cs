@@ -1,89 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using System;
 
 public class EventManager : MonoBehaviour
 {
-    public static event Action OnExitGhost, OnHalfway, OnRemoveTrigger, OnWormhole, 
-    OnExitWormhole, OnEnterWormhole;
+    enum Axis { xLocal, yLocal, zLocal };
+
+    [SerializeField] private UnityEvent OnExit;
+    [SerializeField] private UnityEvent OnEnter;
+    [SerializeField] private UnityEvent OnHalfway;
+    [SerializeField] private UnityEvent OnRemoveTrigger;
+    [SerializeField] private UnityEvent OnWormhole;
+    
     BoxCollider box;
+    GameObject player;
 
-    GameObject player = null;
-
-    enum Axis {xLocal, yLocal, zLocal};
-
-    private void Awake() {
+    void Awake() {
         box = GetComponent<BoxCollider>();
+        player = this.gameObject;
     }
     
-    private void OnTriggerEnter(Collider other) {
-        switch(other.gameObject.tag) {
-            case "Ghost": {
-                GhostCollideEnter(other);
-                break;
-            }
-            case "Wormhole": {
-                WormholeCollideEnter(other);
-                break;
-            }
-            default: {
-                break;
-            }
-        }
+    void OnTriggerEnter(Collider other) {
+        OnEnter.Invoke();
     }
 
-    private void OnTriggerExit(Collider other) {
-        switch(other.gameObject.tag) {
-            case "Ghost": {
-                GhostCollideExit(other);
-                break;
+    void OnTriggerExit(Collider other) {
+        OnExit.Invoke();
+    }
+
+    void OnCollisionEnter(Collision other) {
+            if(other.gameObject.tag == "Start" || other.gameObject.tag == "Finish") {
+            FlipCollide(other);
             }
-            case "Wormhole": {
-                WormholeCollideExit(other);
-                break;
-            }
-            default: {
-                break;
-            }
-        }
     }
 
-    private void OnCollisionEnter(Collision other) {
-        switch(other.gameObject.tag) {
-            case "Start":
-            case "Finish": {
-            FlipCollide(other); 
-            break;
-            }
-            default: {
-                break;
-            }
-        }
-
+    void GhostCollideExit(Collider other) {
     }
 
-    private void GhostCollideEnter(Collider other) {
-
-    }
-
-    private void GhostCollideExit(Collider other) {
-        if (other.gameObject.tag == "Player") {
-            this.gameObject.tag = "Enemy";
-            OnExitGhost?.Invoke();
-        }
-    }
-
-    private void WormholeCollideEnter(Collider other) {
-        SetPlayerObject(this.gameObject);
-        OnEnterWormhole?.Invoke();
-    }
-
-    private void WormholeCollideExit(Collider other) {
-        OnExitWormhole?.Invoke();
-    }
-
-    private void FlipCollide(Collision other) {
+    void FlipCollide(Collision other) {
         DoesFlip flip = other.gameObject?.GetComponent<DoesFlip>();
             if(other.gameObject.tag == "Finish" && flip.isFlip()) {
                 OnHalfway?.Invoke();
@@ -96,11 +52,11 @@ public class EventManager : MonoBehaviour
         else{ return; }
     }
 
-    private void TeleportPlayerRelative(GameObject player, Axis ax, int diffrence) {
+    void TeleportPlayerRelative(GameObject player, Axis ax, int diffrence) {
         player.transform.position = newPosition(player, ax, diffrence);
     }
 
-    private Vector3 newPosition(GameObject itemObject, Axis ax, int diffrence) {
+    Vector3 newPosition(GameObject itemObject, Axis ax, int diffrence) {
         Vector3 toReturn;
         switch(ax) {
             case Axis.xLocal:
@@ -130,11 +86,7 @@ public class EventManager : MonoBehaviour
         return toReturn;
     }
 
-    priave void SetPlayerObject(GameObject player) {
-        player = p;
-    }
-
-    private GameObject GetPlayerObject() {
+    public GameObject GetPlayerObject() {
         return player;
     }
 }
