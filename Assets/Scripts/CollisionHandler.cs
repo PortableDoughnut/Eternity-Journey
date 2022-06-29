@@ -59,6 +59,11 @@ public class CollisionHandler : MonoBehaviour
                     SuccessSequence(other);
                     break;
 
+            case "Enemy":
+                StartCoroutine(PhysicalWait());
+                CrashSequence();
+                break;
+
             default:
                 CrashSequence();
                 break;
@@ -101,5 +106,10 @@ public class CollisionHandler : MonoBehaviour
             successParticle.Play();
             Invoke("LoadNextLevel", reloadTime);
         }
+    }
+
+    IEnumerator PhysicalWait()
+    {
+        yield return new WaitForSeconds(5);
     }
 }

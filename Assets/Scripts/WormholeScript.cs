@@ -58,7 +58,7 @@ public class WormholeScript : MonoBehaviour
     }
 
     private void DoEnterWormhole() {
-        eventM.GetPlayerObject().transform.position = wormholeTo.transform.position;
+        //player.transform.position = wormholeTo.transform.position;
         PlayAudio();
     }
 

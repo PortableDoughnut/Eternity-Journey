@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7722446747045594245}
   m_Layer: 0
   m_Name: Rectangle Cube
-  m_TagString: Obstacle
+  m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,8 +132,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 3530460908259907075}
-        m_TargetAssemblyTypeName: GoingGhost, Assembly-CSharp
+      - m_Target: {fileID: 5634971287543466880}
+        m_TargetAssemblyTypeName: EventManager, Assembly-CSharp
         m_MethodName: DoPhysicalWait
         m_Mode: 1
         m_Arguments:
@@ -171,10 +171,7 @@ MonoBehaviour:
           m_StringArgument: Enemy
           m_BoolArgument: 0
         m_CallState: 1
-  OnHalfway:
-    m_PersistentCalls:
-      m_Calls: []
-  OnRemoveTrigger:
+  OnFlip:
     m_PersistentCalls:
       m_Calls: []
   OnWormhole:
