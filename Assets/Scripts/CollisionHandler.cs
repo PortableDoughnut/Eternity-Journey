@@ -18,23 +18,6 @@ public class CollisionHandler : MonoBehaviour
         audio = GetComponent<AudioSource>();
     }
 
-    void Update() {
-        ProcessLevelSkip();
-        ProcessNoClip();
-    }
-
-    void ProcessNoClip()
-    {
-        if(Input.GetKeyDown(KeyCode.C))
-        //Toggles COllision
-            noClip = !noClip;
-    }
-
-    void ProcessLevelSkip() {
-        if(Input.GetKeyDown(KeyCode.L))
-            LoadNextLevel();
-    }
-
     void OnCollisionEnter(Collision other) {
         if(isTrans || noClip) { return; }
         //This variable is the index of the current scene

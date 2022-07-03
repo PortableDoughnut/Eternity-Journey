@@ -14,9 +14,7 @@ GameObject:
   - component: {fileID: 3565009554898646471}
   - component: {fileID: 2966360225952154820}
   - component: {fileID: 1925031260}
-  - component: {fileID: 1460088525976359250}
   - component: {fileID: 2786950568987191351}
-  - component: {fileID: 1356269113160307545}
   m_Layer: 0
   m_Name: Launch Pad
   m_TagString: Start
@@ -131,24 +129,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1460088525976359250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2465539522779085364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e22cafdc6e781504596951b982957bb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flip: 0
-  flipSound: {fileID: 8300000, guid: ec18bf5ec6f9d6a45b6da60723414c53, type: 3}
-  teleportUp: 40
-  start: {fileID: 2465539522779085364}
-  finish: {fileID: 0}
-  player: {fileID: 0}
 --- !u!82 &2786950568987191351
 AudioSource:
   m_ObjectHideFlags: 0
@@ -245,40 +225,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1356269113160307545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2465539522779085364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f29b05c2d3c28f048841eb31badb8d9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waitTime: 5
-  OnAwake:
-    m_PersistentCalls:
-      m_Calls: []
-  OnExit:
-    m_PersistentCalls:
-      m_Calls: []
-  OnEnter:
-    m_PersistentCalls:
-      m_Calls: []
-  OnCollide:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2465539522779085364}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1

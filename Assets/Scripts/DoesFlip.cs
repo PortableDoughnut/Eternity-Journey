@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoesFlip : MonoBehaviour {
+public class DoesFlip : MonoBehaviour   {
 
     enum Axis { xLocal, yLocal, zLocal };
 
@@ -12,42 +12,56 @@ public class DoesFlip : MonoBehaviour {
     [SerializeField] GameObject start, finish, player;
 
     new AudioSource audio;
-    EventManager eventManager;
 
     private void Awake() {
         audio = GetComponent<AudioSource>();
-        eventManager = GetComponent<EventManager>();
+
         audio.Stop();
+
+        if(flip)
+            FlipRename("Flip");
     }
 
-    public void FlipCheck() {
+    void OnCollisionEnter(Collision other)  {
         if (!flip)
-            Destroy(GetComponent<EventManager>());
+            return;
+
+        Tele();
+        DoFlip();
+        FlipRename("Finish");
     }
 
     public void Tele() {
         TeleportPlayerRelative(player.gameObject, Axis.yLocal, teleportUp);
     }
 
-    public void DoFlip() {
-        if(flip) {
-            Vector3 startPosition = new Vector3(start.transform.position.x, start.transform.position.y, 0);
-            Vector3 finishPosition = new Vector3(finish.transform.position.x, finish.transform.position.y, 0);
-            Destroy(start);
-            finish.transform.position = startPosition;
-            flip = false;
-            PlayAudio();
+    public void DoFlip()
+    {
+        if (!flip)
+            return;
+
+        Vector3 startPosition = new Vector3(start.transform.position.x, start.transform.position.y, 0);
+        Vector3 finishPosition = new Vector3(finish.transform.position.x, finish.transform.position.y, 0);
+        Destroy(start);
+        finish.transform.position = startPosition;
+
+        GameObject[] ghosts = GameObject.FindGameObjectsWithTag("Ghost");
+        for (int i = 0; i < ghosts.Length; i++) {
+            GameObject.Destroy(ghosts[i]);
         }
+
+        flip = false;
+        PlayAudio();
     }
 
-    public void FlipRename() {
-        this.gameObject.tag = "Flip";
+    public void FlipRename(string toRename) {
+        this.gameObject.tag = toRename;
     }
-
-    public global::System.Boolean isFlip => flip;
 
     private void PlayAudio() {
-        if(audio.isPlaying) {return;}
+        if(audio.isPlaying)
+            return;
+
         audio.PlayOneShot(flipSound);
     }
 

@@ -28,7 +28,8 @@ public class WormholeScript : MonoBehaviour
         
     }
 
-    public void DoWormhole() {
+    void OnTriggerEnter(Collider other)
+    {
         player.transform.position = wormholeTo.transform.position;
         PlayAudio();
     }

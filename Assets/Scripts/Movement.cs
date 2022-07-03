@@ -9,8 +9,6 @@ public class Movement : MonoBehaviour
     [SerializeField] float rotateThrust = 1f;
     [SerializeField] ParticleSystem leftThrustParticle, rightThrustParticle, mainThrustParticle;
 
-    bool noClip = false;
-
     Rigidbody rb;
     new AudioSource audio;
 

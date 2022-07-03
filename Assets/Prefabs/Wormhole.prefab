@@ -11,11 +11,9 @@ GameObject:
   - component: {fileID: 2243130981268566611}
   - component: {fileID: 2243130981268566622}
   - component: {fileID: 2243130981268566621}
-  - component: {fileID: 2243130981268566620}
   - component: {fileID: 2243130981268566623}
   - component: {fileID: 2243130981268566616}
-  - component: {fileID: 5884819509020186733}
-  - component: {fileID: 244976584673396341}
+  - component: {fileID: 4350323849734518525}
   m_Layer: 0
   m_Name: Wormhole
   m_TagString: Wormhole
@@ -88,19 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2243130981268566620
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2243130981268566610}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &2243130981268566623
 AudioSource:
   m_ObjectHideFlags: 0
@@ -211,53 +196,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wormholeTo: {fileID: 0}
   wormholeSound: {fileID: 8300000, guid: ec18bf5ec6f9d6a45b6da60723414c53, type: 3}
---- !u!114 &5884819509020186733
-MonoBehaviour:
+--- !u!64 &4350323849734518525
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2243130981268566610}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f29b05c2d3c28f048841eb31badb8d9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnAwake:
-    m_PersistentCalls:
-      m_Calls: []
-  OnExit:
-    m_PersistentCalls:
-      m_Calls: []
-  OnEnter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2243130981268566616}
-        m_TargetAssemblyTypeName: WormholeScript, Assembly-CSharp
-        m_MethodName: DoWormhole
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnCollide:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &244976584673396341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2243130981268566610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b713fe3f6969284c97bd33fa323820f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wormholeTo: {fileID: 0}
-  wormholeSound: {fileID: 0}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}

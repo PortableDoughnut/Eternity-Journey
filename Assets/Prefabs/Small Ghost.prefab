@@ -12,11 +12,10 @@ GameObject:
   - component: {fileID: 3766880119222696690}
   - component: {fileID: 3766880119222696691}
   - component: {fileID: 3766880119222696692}
-  - component: {fileID: 5917266860509010161}
-  - component: {fileID: 7000768003202231661}
+  - component: {fileID: 7218594208953423410}
   m_Layer: 0
-  m_Name: Cube
-  m_TagString: Obstacle
+  m_Name: Small Ghost
+  m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5917266860509010161
+--- !u!114 &7218594208953423410
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,20 +107,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3766880119222696695}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f29b05c2d3c28f048841eb31badb8d9f, type: 3}
+  m_Script: {fileID: 11500000, guid: 3428673a73fed444c9dffdf90a70ffe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7000768003202231661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3766880119222696695}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0253a8893c9f6b5498c3aa664a74d5e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  toRender: {fileID: 2100000, guid: ab7f435ce9246d040bf676d59fbb74bd, type: 2}
-  flipSound: {fileID: 8300000, guid: ec18bf5ec6f9d6a45b6da60723414c53, type: 3}
+  material: {fileID: 2100000, guid: ab7f435ce9246d040bf676d59fbb74bd, type: 2}
+  waitTime: 3
