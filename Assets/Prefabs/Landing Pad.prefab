@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22cafdc6e781504596951b982957bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flip: 1
+  flip: 0
   flipSound: {fileID: 8300000, guid: 6878d1ecf372f0e44b4f2f5e7b13764b, type: 3}
   teleportUp: 40
   start: {fileID: 0}

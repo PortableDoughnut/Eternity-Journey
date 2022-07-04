@@ -140,6 +140,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 750103412606497222, guid: 91365b3c6079b2043b6787561d7ae4e8, type: 3}
+      propertyPath: finish
+      value: 
+      objectReference: {fileID: 1474758775}
     - target: {fileID: 7016326920917701219, guid: 91365b3c6079b2043b6787561d7ae4e8, type: 3}
       propertyPath: m_Name
       value: Player
@@ -609,25 +613,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2305288317386233283, guid: 269ecc576c6dca842b7bb993cd05d703, type: 3}
-      propertyPath: flip
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2305288317386233283, guid: 269ecc576c6dca842b7bb993cd05d703, type: 3}
       propertyPath: start
       value: 
       objectReference: {fileID: 2143241592}
     - target: {fileID: 2305288317386233283, guid: 269ecc576c6dca842b7bb993cd05d703, type: 3}
-      propertyPath: finish
-      value: 
-      objectReference: {fileID: 1474758775}
-    - target: {fileID: 2305288317386233283, guid: 269ecc576c6dca842b7bb993cd05d703, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1223821442}
-    - target: {fileID: 5982757042094078537, guid: 269ecc576c6dca842b7bb993cd05d703, type: 3}
-      propertyPath: OnAwake.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7132707905428751183, guid: 269ecc576c6dca842b7bb993cd05d703, type: 3}
       propertyPath: m_Name
       value: Landing Pad

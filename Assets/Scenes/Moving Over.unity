@@ -919,6 +919,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 750103412606497222, guid: 91365b3c6079b2043b6787561d7ae4e8, type: 3}
+      propertyPath: finish
+      value: 
+      objectReference: {fileID: 1848346661}
     - target: {fileID: 6284093946867745890, guid: 91365b3c6079b2043b6787561d7ae4e8, type: 3}
       propertyPath: m_Lightmapping
       value: 1

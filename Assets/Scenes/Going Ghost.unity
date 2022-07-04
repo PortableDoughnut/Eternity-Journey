@@ -609,6 +609,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 750103412606497222, guid: 91365b3c6079b2043b6787561d7ae4e8, type: 3}
+      propertyPath: finish
+      value: 
+      objectReference: {fileID: 2130715347}
     - target: {fileID: 7016326920917701219, guid: 91365b3c6079b2043b6787561d7ae4e8, type: 3}
       propertyPath: m_Name
       value: Rocket
@@ -1594,6 +1598,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 269ecc576c6dca842b7bb993cd05d703, type: 3}
+--- !u!1 &2130715347 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7132707905428751183, guid: 269ecc576c6dca842b7bb993cd05d703, type: 3}
+  m_PrefabInstance: {fileID: 2130715346}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &940076430512089929
 PrefabInstance:
   m_ObjectHideFlags: 0

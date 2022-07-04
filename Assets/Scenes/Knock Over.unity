@@ -609,6 +609,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 104
       objectReference: {fileID: 0}
+    - target: {fileID: 750103412606497222, guid: 91365b3c6079b2043b6787561d7ae4e8, type: 3}
+      propertyPath: finish
+      value: 
+      objectReference: {fileID: 162259462}
     - target: {fileID: 7016326920917701219, guid: 91365b3c6079b2043b6787561d7ae4e8, type: 3}
       propertyPath: m_Name
       value: Rocket
