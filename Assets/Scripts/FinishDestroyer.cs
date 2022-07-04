@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class FinishDestroyer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //This is called when the GameObject has collision with something.
+    private void OnCollisionEnter(Collision collision)  {
+        //If the tag of the other object is set to player the method is not ran.
+        if (collision.gameObject.tag == "Player")
+            return;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnCollisionEnter(Collision collision) {
-        if(collision.gameObject.tag != "Player")
-            Destroy(collision.gameObject);
+        //This destroys the object it is touching.
+        Destroy(collision.gameObject);
     }
 }

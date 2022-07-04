@@ -12,6 +12,7 @@ public class WormholeScript : MonoBehaviour
     //Creates a AudioSource instance to use for playing the audio
     new AudioSource audio;
 
+    //This is the GameObject that is player.
     GameObject player;
 
         /**
@@ -21,16 +22,17 @@ public class WormholeScript : MonoBehaviour
     private void Awake() {
         //Getting the Audio Source attached to the game object and attaching it to the AudioSource instance we set up earlier.
         audio = GetComponent<AudioSource>();
+        //This sets the player variable to the GameObject with the tag of Player.
         player = GameObject.FindWithTag("Player");
         //Stops any audio that might be playing just to be safe.
         audio.Stop();
-
-        
     }
 
-    void OnTriggerEnter(Collider other)
-    {
+    //This runs when something collides with the GameObject.
+    void OnTriggerEnter(Collider other) {
+        //This changes the position of the player to the position of the other wormhole.
         player.transform.position = wormholeTo.transform.position;
+        //This runs the PlayAudio() method, playing the AudioClip set.
         PlayAudio();
     }
 

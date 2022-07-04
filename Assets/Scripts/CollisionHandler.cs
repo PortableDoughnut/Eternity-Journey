@@ -64,6 +64,7 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("Level Started.");
                 break;
                 
+            //These Tags do nothing on collision
             case "Obstacle":
             case "Ghost": 
             case "Wormhole":
@@ -80,11 +81,13 @@ public class CollisionHandler : MonoBehaviour
                     SuccessSequence(other);
                 break;
 
+            //This tag will start a crash
             case "Enemy":
                 StartCoroutine(PhysicalWait());
                 CrashSequence();
                 break;
 
+            //If the tag wasn't defined then it will start a crash
             default:
                 CrashSequence();
                 break;
@@ -93,11 +96,15 @@ public class CollisionHandler : MonoBehaviour
 
      //This loads the next level
     void LoadNextLevel() {
+        //This gets the current level
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        //This sets the level to the next level
         int nextSceneIndex = currentSceneIndex + 1;
+        //This says that if we are at the last level we go to the first level
         if (nextSceneIndex == SceneManager.sceneCountInBuildSettings) {
             nextSceneIndex = 0;
         }
+        //This loads the next level
         SceneManager.LoadScene(nextSceneIndex);
     }
 
@@ -107,25 +114,44 @@ public class CollisionHandler : MonoBehaviour
         SceneManager.LoadScene(currentSceneIndex);
     }
 
+    //This is the sequence that starts when the player hits an obsticle
     void CrashSequence() {
+        /*
+         * This sets the isTrans variable to true.
+         * This disables collision while the level reloads.
+         */
         isTrans = true;
+        //This diables movement for the player while the level reloads.
         GetComponent<Movement>().enabled = false;
+        //This stops all audio.
         audio.Stop();
+        //This plays the death AudioClip.
         audio.PlayOneShot(deathSound);
+        //This plays the death particle.
         deathParticle.Play();
+        //This Reloads the level after the amount of time specified in respawnTime.
         Invoke("ReloadLevel", respawnTime);
     }
 
+    //This is the sequence that starts when the player touches the landing pad
     void SuccessSequence(Collision other) {
+            //This logs that the player has finished the level to the console.
             Debug.Log("Finished");
+            //This diables movement for the player while the next level loads.
             isTrans = true;
+            //This diables movement for the player while the next level loads.
             GetComponent<Movement>().enabled = false;
+            //This stops all audio.
             audio.Stop();
+            //This plays the success AudioClip.
             audio.PlayOneShot(successSound);
+            //This plays the success particle.
             successParticle.Play();
+            //This Loads the next level after the amount of time specified in reloadTime.
             Invoke("LoadNextLevel", reloadTime);
     }
 
+    //This is a Coroutine that waits.
     IEnumerator PhysicalWait()
     {
         yield return new WaitForSeconds(5);
