@@ -30,6 +30,10 @@ public class WormholeScript : MonoBehaviour
 
     //This runs when something collides with the GameObject.
     void OnTriggerEnter(Collider other) {
+        //This method won't run if wormholeTo is null.
+        if(wormholeTo == null)
+            return;
+
         //This changes the position of the player to the position of the other wormhole.
         player.transform.position = wormholeTo.transform.position;
         //This runs the PlayAudio() method, playing the AudioClip set.
