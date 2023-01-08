@@ -10,8 +10,10 @@ public class Movement : MonoBehaviour
     [SerializeField] float thrust = 100f;
     //This variable is used for how fast the player will rotate.
     [SerializeField] float rotateThrust = 1f;
+    // Set the distance from the camera that the player will be locked to
+    [SerializeField] public float zDistance = 1.0f;
     //These are the particle systems for when the player is moving for thrust.
-    [SerializeField] ParticleSystem leftThrustParticle, rightThrustParticle, mainThrustParticle;
+    [SerializeField] ParticleSystem mainThrustParticle;
 
     //This is the varible used for accessing the Rigidbody attached to the GameObject.
     Rigidbody rb;
@@ -19,7 +21,8 @@ public class Movement : MonoBehaviour
     new AudioSource audio;
 
     // Start is called before the first frame update
-    void Start() {
+    void Start()
+    {
         //This is setting the rb variable to the Rigidbody attached to the GameObject.
         rb = GetComponent<Rigidbody>();
         //This is setting the audio variable to the Audio Source attached to the GameObject.
@@ -31,24 +34,31 @@ public class Movement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
         ProcessThrust();
         ProcessRotate();
+        // Set the player's position to be locked to the 2D plane
+        transform.position = new Vector3(transform.position.x, transform.position.y, zDistance);
     }
 
     //If player is pushing the space key move the player forward
-    void ProcessThrust() {
+    void ProcessThrust()
+    {
         //If the space key is pressed it runs OnThrust() otherwise it runs OnThrustStop()
-        if(Input.GetKey(KeyCode.Space)) {
+        if (Input.GetKey(KeyCode.Space))
+        {
             OnThrust();
         }
-        else {
+        else
+        {
             OnThrustStop();
         }
     }
 
-        //If the player is pushing left or right it will rotate the player. you cannot rotate both ways at the same time. I used an elf if statement on the right if statement to make this happen because that is the simplest way I have found to do it. Also the video online used it.
-    void ProcessRotate() {
+    //If the player is pushing left or right it will rotate the player. you cannot rotate both ways at the same time. I used an elf if statement on the right if statement to make this happen because that is the simplest way I have found to do it. Also the video online used it.
+    void ProcessRotate()
+    {
         //Calls RotateLeft() if the A key is pressed.
         if (Input.GetKey(KeyCode.A))
         {
@@ -59,7 +69,6 @@ public class Movement : MonoBehaviour
         {
             RotateRight();
         }
-
     }
 
     /*
@@ -81,26 +90,22 @@ public class Movement : MonoBehaviour
      * This runs if the A key is pressed.
      * This rotates the player left.
      */
-    void RotateLeft() {
+    void RotateLeft()
+    {
         //This calls the Rotate() method with the variable roatateThrust as the param.
         Rotate(rotateThrust);
-        //If the leftThrustPartiacle is not already playing then it will play it.
-        if(!leftThrustParticle.isEmitting)
-            leftThrustParticle.Play();
     }
 
     /*
      * This runs if the D key is pressed.
      * This rotates the player right.
      */
-    void RotateRight() {
+    void RotateRight()
+    {
         //This calls the Rotate() method with the negitive of the variable roatateThrust as the param.
         Rotate(-rotateThrust);
-        //If the rightThrustPartiacle is not already playing then it will play it.
-        if (!rightThrustParticle.isEmitting)
-            rightThrustParticle.Play();
     }
-    
+
     //This runs when the player stops pressing the spacebar.
     void OnThrustStop()
     {
@@ -123,7 +128,8 @@ public class Movement : MonoBehaviour
      * This rotates the player.
      * The flaot param rotateThisFrame is used to say how fast to rotate and in which direction.
      */
-    void Rotate(float rotateThisFrame) {
+    void Rotate(float rotateThisFrame)
+    {
         //Freezing rotation so we can manually rotate without bugs
         rb.freezeRotation = true;  // freezing rotation so we can manually rotate
         transform.Rotate(Vector3.forward * rotateThisFrame * Time.deltaTime);

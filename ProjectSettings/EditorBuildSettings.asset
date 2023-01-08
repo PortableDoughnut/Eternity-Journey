@@ -20,4 +20,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Wormhole.unity
     guid: 797d478c9fb5c2743a0b34ccabb61fc9
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: be43e7017b2b1bf4786e900f1ed791f3, type: 2}
